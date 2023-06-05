@@ -5,7 +5,125 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-<f:view>
-    <h:outputLabel value="Hello, world"/>
-</f:view>
+<head>
+    <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <style>
+        #colora {
+            color: orange;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding-top: 40px;
+
+        }
+
+        #colorb {
+            color: lightblue;
+            padding-left: 40px;
+        }
+
+        .center {
+            padding-left: 40px;
+        }
+
+        .about {
+            color: orange;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding-top: 40px;
+
+        }
+
+        .terms {
+            color: black;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding-top: 40px;
+
+        }
+        .ch tr td input{
+            width: 10px;
+            height: 10px;
+        }
+    </style>
+</head>
+
+<body>
+<body>
+<div class="container">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+            crossorigin="anonymous"></script>
+
+    <h2 id="colora">CREATE A NEW ACCOUNT</h2>
+    <h6 id="colorb"> Already have a McDonald's App account? You can proceed to sign in with the same username and
+        password.</h6>
+
+    <div class="center">
+        <h4>*Email</h4>
+        <input class="form-control w-50" size="110" type="text" placeholder="name@gmail.com">
+        <h4>*Password</h4>
+        <input class="form-control w-50" type="password" placeholder="enter your password" size="110">
+    </div>
+
+    <div class="about">
+        <h2>ABOUT YOU</h2>
+        <h6 style="color: grey;">*Required fields</h6>
+        <table>
+            <tr>
+                <td>
+                    <h4 style="color: black;">First Name</h4>
+                    <input class="form-control " size="50" type="text">
+                </td>
+                <td>
+                    <h4 style="color: black;">Last Name</h4>
+                    <input class="form-control " type="text" size="50">
+                </td>
+            </tr>
+        </table>
+        <h4 style="color: black;">*Contact Number</h4>
+        <input class="form-control w-50" size="110" type="text" placeholder="name@gmail.com">
+    </div>
+    <div class="terms">
+        <h2 style="color: orange;">TERMS AND CONDITIONS</h2>
+        <p style="color:black">The purpose of this account is to provide you with offers based on your preferences
+            and account usage. </p>
+        <p style="color:black">If you do not want McDonald's to use your preferences and account usage in this way
+            then you should not</p>
+        <p style="color:blue">proceed to registration. See our Privacy Statement for more information about how we
+            use your personal data.</p>
+
+        <table >
+            <tr >
+                <td>
+                    <input style="width: 30px; height: 30px; margin-right: 10px;"   type="checkbox" name="vehicle1" value="Bike">
+                    I'd like to receive news, updates and promotions from McDonald's via Email.
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input style="width: 30px; height: 30px; margin-right: 10px;" type="checkbox" name="vehicle1" value="Bike">I'd like to receive news, updates and
+                    promotions from McDonald’s via SMS.
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input style="width: 30px; height: 30px; margin-right: 10px;" type="checkbox" name="vehicle1" value="Bike">    I am aged 13 or over and agree to the
+                    Terms.*
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button class="btn btn-primary w-50 " style="margin-top: 30px; height: 60px; color: aliceblue; font-weight: bold;">CREATE ACCOUNT</button>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+</div>
+ 
+</body>
+
+</html>
+</body>
+
 </html>
