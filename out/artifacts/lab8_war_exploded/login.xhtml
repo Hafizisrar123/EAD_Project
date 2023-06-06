@@ -23,8 +23,8 @@
             <div class="row mb-1" >
                 <h1>Login</h1>
                 <div class="col"  >
-                    Name
-                    <h:inputText value="#{loginbean.person.name}" class="form-control" style="width: 350px;height: 35px;"></h:inputText>
+                    Email
+                    <h:inputText value="#{loginbean.person.mail}" class="form-control" style="width: 350px;height: 35px;"></h:inputText>
                     Password
                     <h:inputSecret value="#{loginbean.person.password}" class="form-control" style="width: 350px;height: 35px"></h:inputSecret>
                 </div>
@@ -34,6 +34,7 @@
                 <h:commandButton value="Login" action="#{loginbean.login}" class="btn btn-primary btn-block mb-2" style="width: 100px;height: 40px;margin-left: 10px"></h:commandButton>
             </div>
             </div>
+            <a href="register.xhtml"> Create Account</a>
         </h:form>
     </div>
 

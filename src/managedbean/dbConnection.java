@@ -3,7 +3,7 @@ package managedbean;
 import java.sql.*;
 
 public class dbConnection {
-    private String dbURL = "jdbc:mysql://localhost:3306/person";
+    private String dbURL = "jdbc:mysql://localhost:3306/mcdel";
     private String username = "root";
     private String password = "";
     private Connection connection;
@@ -22,14 +22,16 @@ public class dbConnection {
         }
     }
 
-    public void insertRecord(String name ,String email,String password) {
+    public void insertRecord(String firstname, String lastname,String email,String password,int phonenumber) {
         try {
             System.out.println("db");
-            String sqlQuery = "INSERT INTO data(uname,email,password) VALUES(?,?,?)";
+            String sqlQuery = "INSERT INTO new(fname,lname, email,password,phoneno) VALUES(?,?,?,?,?)";
             PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
-            preparedStatement.setString(1, name);
-            preparedStatement.setString(2, email);
-            preparedStatement.setString(3, password);
+            preparedStatement.setString(1, firstname);
+            preparedStatement.setString(2, lastname);
+            preparedStatement.setString(3, email);
+            preparedStatement.setString(4, password);
+            preparedStatement.setInt(5, phonenumber);
 
 
             int noOfRowsInserted = preparedStatement.executeUpdate();
@@ -41,14 +43,16 @@ public class dbConnection {
         }
     }
 
-    public void updateRecord(String uname,String email, String password) {
+    public void updateRecord(String fname,String lname,String email, String password,int phno) {
         try {
-            String sqlQuery = "UPDATE data SET uname=?,email=?,password=? WHERE email=?";
+            String sqlQuery = "UPDATE new SET fname=?,lname=?,email=?,password=?,phoneno=? WHERE email=?";
             PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
-            preparedStatement.setString(1, uname);
-            preparedStatement.setString(2, email);
-            preparedStatement.setString(3, password);
-            preparedStatement.setString(4, email);
+            preparedStatement.setString(1, fname);
+            preparedStatement.setString(2, lname);
+            preparedStatement.setString(3, email);
+            preparedStatement.setString(4, password);
+            preparedStatement.setInt(5,phno);
+            preparedStatement.setString(6, email);
 
             preparedStatement.executeUpdate();
 //            System.out.println("sucess");
@@ -57,11 +61,11 @@ public class dbConnection {
         }
     }
 
-    public void deleteRecord(String name) {
+    public void deleteRecord(String mail) {
         try {
-            String sqlQuery = "DELETE from data WHERE uname=?";
+            String sqlQuery = "DELETE from value WHERE email=?";
             PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
-            preparedStatement.setString(1, name);
+            preparedStatement.setString(1, mail);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -103,11 +107,11 @@ public class dbConnection {
         }
         return null;
     }
-    public boolean validatepassword(String uname,String password){
+    public boolean validatepassword(String email,String password){
         try {
-            String sqlQuery = "SELECT uname,password FROM data where uname=? and password=?";
+            String sqlQuery = "SELECT email,password FROM new where email=? and password=?";
             PreparedStatement preparedStatement=connection.prepareStatement(sqlQuery);
-            preparedStatement.setString(1, uname);
+            preparedStatement.setString(1, email);
             preparedStatement.setString(2, password);
 
 

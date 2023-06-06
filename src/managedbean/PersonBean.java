@@ -22,9 +22,7 @@ public class PersonBean {
 
     private Map<String,Object> SessionMap=FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
     Person person;
-    public    String errorMessage="";
-    private String encryptedPassword;
-    private String encryptedConfirmPassword;
+
 
 
 
@@ -59,37 +57,36 @@ public class PersonBean {
     }
     public String  saveToDB() throws NoSuchAlgorithmException {
 
-         String name=person.getName();
-         String email=person.getEmail();
+         String firstname=person.getFirstname();
+         String email=person.getMail();
          String password=person.getPassword();
-         String confirmpassword=person.getConfirmpassword();
+         String lastname=person.getLastname();
+         int phonenumber=person.getPhonenumber();
 
 
 
-        if(name.isEmpty()||email.isEmpty()||password.isEmpty()||confirmpassword.isEmpty()){
-            return "registration.xhtml";
+        if(firstname.isEmpty()||email.isEmpty()||password.isEmpty()||lastname.isEmpty()){
+            return "first.xhtml";
         } else {
-            if(password.equals(confirmpassword)){
-                db.insertRecord(name, email, password);
+
+                db.insertRecord(firstname, lastname, email, password,phonenumber);
                 return "login.xhtml";
-            }else {
-                return "error.xhtml";
-            }
+
         }
     }
       public void DeletePerson(Person p) throws SQLException {
-        String name = p.getName();
-        db.deleteRecord(name);
+        String mail = p.getMail();
+        db.deleteRecord(mail);
         System.out.print("Success!");
        }
        public String getDataForEdit(Person person){
-        System.out.println(person.getEmail());
+        System.out.println(person.getMail());
            SessionMap.put("editUser", person);
            return "/editform2.xhtml?faces-redirect=true";
        }
        public String updateRecord(Person person){
-        db.updateRecord(person.getName(),person.getEmail(),person.getPassword());
-        return "registration.xhtml?faces-redirect=true";
+        db.updateRecord(person.getFirstname(),person.getLastname(),person.getMail(),person.getPassword(),person.getPhonenumber());
+        return "first.xhtml?faces-redirect=true";
        }
 
     }
